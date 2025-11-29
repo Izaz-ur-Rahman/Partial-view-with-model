@@ -1,4 +1,18 @@
-﻿@model IEnumerable<PartialViewWithModel.Models.Product>
+﻿@*@model IEnumerable<PartialViewWithModel.Models.Product>
+
+    <h1>Products</h1>
+
+    <div class="container">
+        <div class="row">
+            @foreach (var product in Model)
+            {
+               <div class="col-md-4">
+                   <partial name ="_partialView"/>
+               </div>
+            }
+        </div>
+    </div>*@
+@model IEnumerable<PartialViewWithModel.Models.Product>
 
     <h1>Products</h1>
 
@@ -7,13 +21,7 @@
             @foreach (var product in Model)
             {
                 <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                @product.Name
-                            </h5>
-                        </div>
-                    </div>
+                    <partial name="_partialView" model="product" />  <!-- ✅ Pass SINGLE product -->
                 </div>
             }
         </div>
